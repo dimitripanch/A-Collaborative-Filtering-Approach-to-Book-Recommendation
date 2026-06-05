@@ -1,0 +1,9 @@
+*.json.gz
+*.csv
+data/
+*.pkl
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+.env
