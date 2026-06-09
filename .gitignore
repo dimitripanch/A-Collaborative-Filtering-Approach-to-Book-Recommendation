@@ -8,3 +8,6 @@ __pycache__/
 .venv/
 .env
 cleaned_ratings.csv
+train—_ratings.csv
+test_ratings.csv
+val_ratings.csv

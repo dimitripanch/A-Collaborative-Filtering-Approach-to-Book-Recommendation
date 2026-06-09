@@ -32,6 +32,11 @@ Place the file in the project root directory.
 2. Run `eda_cleaning.ipynb` from start to finish (~10–15 min).  
    This will generate `cleaned_ratings.csv` in the project root.
 
+3. Generate train/val/test split  
+   Run the **"Train/Val/Test Split"** section in `model.ipynb`.  
+   This produces `train_ratings.csv`, `val_ratings.csv`, `test_ratings.csv`  
+   (requires `cleaned_ratings.csv` from step 2).
+
 > **Note:** Raw data files and `cleaned_ratings.csv` are excluded from the GitHub repository (see `.gitignore`) due to file size constraints.
 
 ## Environment Setup
@@ -78,6 +83,10 @@ https://mengtingwan.github.io/data/goodreads.html
   *(Filters 2 & 3 applied iteratively until convergence — 14 iterations)*
 
 **Output:** `cleaned_ratings.csv` · 170 MB · columns: `user_id, book_id, rating`
+
+**Train/Val/Test Split (80/10/10, random_state=42):**  
+Run the first section of `model.ipynb` to generate:  
+`train_ratings.csv` · `val_ratings.csv` · `test_ratings.csv`
 
 **Citation:** If using this dataset, please cite:  
 Wan, M., & McAuley, J. (2018). RecSys '18. https://doi.org/10.1145/3240323.3240369  
