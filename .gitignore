@@ -18,3 +18,4 @@ cleaned_ratings.csv
 train_ratings.csv
 val_ratings.csv
 test_ratings.csv
+saved_models/
