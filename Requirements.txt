@@ -3,3 +3,4 @@ numpy
 matplotlib
 ipykernel
 scikit-surprise
+scikit-learn
