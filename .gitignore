@@ -20,3 +20,5 @@ train_ratings.csv
 val_ratings.csv
 test_ratings.csv
 saved_models/
+twotower_item_embeds.npy
+twotower_book_ids.csv
