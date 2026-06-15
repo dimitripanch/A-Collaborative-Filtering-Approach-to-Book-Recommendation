@@ -4,10 +4,16 @@ Chenyi Huang (Jenny) · Ke Xu (Kate) · CS 5100, Northeastern University
 
 ## Project Structure
 ```
-├── eda_cleaning.ipynb    # EDA and data cleaning
-├── model.ipynb           # Model training, tuning, and evaluation
-├── recommend.py          # Console application
-├── cleaned_ratings.csv   # Cleaned dataset (via Google Drive, see below)
+├── eda_cleaning.ipynb         # EDA and data cleaning
+├── model.ipynb                # SVD training, tuning, and evaluation
+├── twotower.ipynb             # TwoTower model + cross-model NDCG comparison
+├── recommend.py               # Console application (--model svd | twotower)
+├── book_titles.csv            # book_id → title lookup (committed; small)
+├── book_works.csv             # book_id → work_id, for edition de-dup (committed; small)
+├── twotower_item_embeds.npy   # TwoTower item-tower vectors, 22931×32 (committed; small)
+├── twotower_book_ids.csv      # book_ids aligned to the .npy rows (committed; small)
+├── cleaned_ratings.csv        # Cleaned dataset (via Google Drive, see below)
+├── svd_model.pkl              # Trained SVD model (via Google Drive; large)
 ├── requirements.txt
 └── README.md
 ```
@@ -61,8 +67,26 @@ Open `eda_cleaning.ipynb` in VSCode, select the venv kernel, and run all cells.
 **2. Model Training & Evaluation**
 Open `model.ipynb` in VSCode, select the venv kernel, and run all cells.
 
-**3. Console Application** 
-python `recommend.py`
+**3. Console Application**
+
+Item-to-item book recommender. Pick the model with `--model`:
+
+```bash
+python recommend.py --model twotower   # neural TwoTower item embeddings
+python recommend.py --model svd         # SVD item-factor similarity
+```
+
+Then type a book title to get similar books. In **twotower** mode you can also
+enter **2–5 titles separated by commas** to blend them into a "pseudo-user"
+(the seed vectors are averaged into a centroid and the nearest books returned).
+Results are collapsed by `work_id` so duplicate editions appear once.
+
+- `--model twotower` needs `twotower_item_embeds.npy` + `twotower_book_ids.csv`
+  (committed in the repo) — runs out of the box.
+- `--model svd` additionally needs `svd_model.pkl` (download from Google Drive, above).
+- Both need `book_titles.csv` and `book_works.csv` (committed in the repo).
+
+> Similarity scores are comparable *within* a model, not across SVD vs TwoTower.
 
 ## Dataset
 **Source:** UCSD Goodreads Children's Book Dataset  
