@@ -198,7 +198,8 @@ def main():
         if not raw:
             continue
 
-        queries = [s.strip() for s in raw.split(",") if s.strip()]
+        # accept both ASCII "," and full-width "，" (common from CJK input methods)
+        queries = [s.strip() for s in raw.replace("，", ",").split(",") if s.strip()]
 
         # --- enforce per-model seed-count rules ---
         if args.model == "svd" and len(queries) > 1:
