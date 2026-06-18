@@ -13,7 +13,7 @@ Chenyi Huang (Jenny) · Ke Xu (Kate) · CS 5100, Northeastern University
 ├── twotower_item_embeds.npy   # TwoTower item-tower vectors, 22931×32 (committed; small)
 ├── twotower_book_ids.csv      # book_ids aligned to the .npy rows (committed; small)
 ├── cleaned_ratings.csv        # Cleaned dataset (via Google Drive, see below)
-├── svd_model.pkl              # Trained SVD model (via Google Drive; large)
+├── svd_model.pkl              # Trained SVD model (generate via model.ipynb §5; large)
 ├── requirements.txt
 └── README.md
 ```
@@ -83,7 +83,9 @@ Results are collapsed by `work_id` so duplicate editions appear once.
 
 - `--model twotower` needs `twotower_item_embeds.npy` + `twotower_book_ids.csv`
   (committed in the repo) — runs out of the box.
-- `--model svd` additionally needs `svd_model.pkl` (download from Google Drive, above).
+- `--model svd` additionally needs `svd_model.pkl` — generate it by running
+  `model.ipynb` Section 5 "Final Model & Evaluation" (a single fit, ~tens of
+  seconds; skip Section 4 GridSearchCV, ~36 min, not needed).
 - Both need `book_titles.csv` and `book_works.csv` (committed in the repo).
 
 > Similarity scores are comparable *within* a model, not across SVD vs TwoTower.
