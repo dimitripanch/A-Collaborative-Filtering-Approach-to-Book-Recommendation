@@ -14,7 +14,7 @@ Chenyi Huang (Jenny) · Ke Xu (Kate) · CS 5100, Northeastern University
 ├── twotower_item_embeds.npy   # TwoTower item-tower vectors, 22931×32 (committed; small)
 ├── twotower_book_ids.csv      # book_ids aligned to the .npy rows (committed; small)
 ├── cleaned_ratings.csv        # Cleaned dataset (via Google Drive, see below)
-├── svd_model.pkl              # Trained SVD model (via Google Drive; large)
+├── svd_model.pkl              # Trained SVD model (generate via model.ipynb §5; large)
 ├── requirements.txt
 └── README.md
 ```
