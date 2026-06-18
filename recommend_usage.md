@@ -43,13 +43,20 @@ At the `Book(s) you like >` prompt, type:
 | `book_works.csv` | both models | repo |
 | `twotower_item_embeds.npy` | `--model twotower` | repo |
 | `twotower_book_ids.csv` | `--model twotower` | repo |
-| `svd_model.pkl` | `--model svd` | generated locally — see below (too large for GitHub) |
+| `svd_model.pkl` | `--model svd` | download or generate — see below (too large for GitHub) |
 
 `--model twotower` runs straight from a clone. `--model svd` additionally needs
-`svd_model.pkl`, which is not committed (~217 MB, over GitHub's limit).
+`svd_model.pkl`, which is not committed (~217 MB, over GitHub's limit). Get it
+either way below — both give the identical tuned model (nf=200).
 
-**Generating `svd_model.pkl`:** run **Section 5 "Final Model & Evaluation"** in
-`model.ipynb` (it loads `best_params.json`, fits once, and saves the file). This
+### Getting `svd_model.pkl` — pick one
+
+**Option A — download (fastest).** Grab the pre-built file from Google Drive and
+put it in the project root:
+<https://drive.google.com/file/d/176b4K-cPJ3IjMmZyxYK7ALkgkHC9Tpjf/view?usp=drive_link>
+
+**Option B — generate it yourself.** Run **Section 5 "Final Model & Evaluation"**
+in `model.ipynb` (it loads `best_params.json`, fits once, and saves the file). This
 is a single fit — only **tens of seconds**. Skip Section 4 (GridSearchCV, ~36 min);
 that is hyperparameter tuning and is not needed, since the best params are already
 saved in `best_params.json`.
